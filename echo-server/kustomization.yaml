@@ -1,0 +1,4 @@
+namespace: demo-echo
+resources:
+  - deployment.yaml
+  - service.yaml

@@ -1,0 +1,8 @@
+namespace: demo-nginx
+resources:
+  - deployment.yaml
+  - service.yaml
+configMapGenerator:
+  - name: nginx-index
+    files:
+      - index.html
