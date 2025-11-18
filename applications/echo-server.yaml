@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/REPO_OWNER/sample-apps.git
+    repoURL: https://github.com/admbmg/sample-apps.git
     targetRevision: HEAD
     path: echo-server
   destination:
