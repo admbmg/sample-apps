@@ -1,0 +1,7 @@
+namespace: demo-dotnet
+resources:
+  - deployment.yaml
+  - service.yaml
+images:
+  - name: bmgacr.azurecr.io/simple-api
+    newTag: v1
