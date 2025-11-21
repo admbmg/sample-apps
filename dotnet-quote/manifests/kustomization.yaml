@@ -1,0 +1,8 @@
+namespace: demo-quote
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+images:
+  - name: bmgacr.azurecr.io/quote-app
+    newTag: v1

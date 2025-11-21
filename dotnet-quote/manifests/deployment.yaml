@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-quote
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dotnet-quote
+  template:
+    metadata:
+      labels:
+        app: dotnet-quote
+    spec:
+      imagePullSecrets:
+        - name: acr-creds
+      containers:
+        - name: dotnet-quote
+          image: bmgacr.azurecr.io/quote-app
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
